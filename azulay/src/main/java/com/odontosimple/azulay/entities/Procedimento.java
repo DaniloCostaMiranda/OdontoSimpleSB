@@ -28,15 +28,20 @@ public class Procedimento implements Serializable {
     @OneToMany(mappedBy = "id.procedimento")
     private Set<TratamentoItem> items = new HashSet<>();
 
+    @ManyToOne
+    @JoinColumn(name = "status_id")
+    private Status status;
+
 
     public Procedimento(){
 
     }
 
-    public Procedimento(Long id, String name, Double price) {
+    public Procedimento(Long id, String name, Double price, Status status) {
         this.id = id;
         this.name = name;
         this.price = price;
+        this.status = status;
     }
 
     public Long getId() {
@@ -61,6 +66,14 @@ public class Procedimento implements Serializable {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
     public Set<DenteCode> getDentecodes() {

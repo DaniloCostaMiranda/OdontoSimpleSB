@@ -22,6 +22,10 @@ public class Status implements Serializable {
     @OneToMany(mappedBy = "status")
     private List<Tratamento> tratamentos = new ArrayList<>();
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "status")
+    private List<Procedimento> procedimentos = new ArrayList<>();
+
     public Status(){
 
     }
@@ -49,6 +53,10 @@ public class Status implements Serializable {
 
     public List<Tratamento> getTratamentos() {
         return tratamentos;
+    }
+
+    public List<Procedimento> getProcedimentos() {
+        return procedimentos;
     }
 
     @Override

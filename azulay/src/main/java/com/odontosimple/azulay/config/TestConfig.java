@@ -84,11 +84,11 @@ public class TestConfig implements CommandLineRunner {
         DenteCode d31 = new DenteCode(null, 47, "Segundo Molar_ID");
         DenteCode d32 = new DenteCode(null, 48, "Ciso_ID");
 
-        Procedimento p1 = new Procedimento(null, "Limpeza",200.00);
-        Procedimento p2 = new Procedimento(null, "Restauracao",  250.00);
-        Procedimento p3 = new Procedimento(null, "Canal",900.00);
-        Procedimento p4 = new Procedimento(null, "Implante", 1700.00);
-        Procedimento p5 = new Procedimento(null, "Extração", 300.00);
+        Procedimento p1 = new Procedimento(null, "Limpeza",200.00, null);
+        Procedimento p2 = new Procedimento(null, "Restauracao",  250.00, null);
+        Procedimento p3 = new Procedimento(null, "Canal",900.00, null);
+        Procedimento p4 = new Procedimento(null, "Implante", 1700.00, null);
+        Procedimento p5 = new Procedimento(null, "Extração", 300.00, null);
 
         dentecodeRepository.saveAll(Arrays.asList(d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13, d14, d15, d16, d17, d18, d19, d20, d21, d22, d23, d24, d25, d26, d27, d28, d29, d30, d31, d32));
         procedimentoRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
@@ -99,6 +99,8 @@ public class TestConfig implements CommandLineRunner {
         p3.getDentecodes().add(d30);
         p4.getDentecodes().add(d31);
         p5.getDentecodes().add(d32);
+
+        p5.setStatus(s3);
 
         procedimentoRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
 
